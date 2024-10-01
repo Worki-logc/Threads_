@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <title>Document</title>
+</head>
+
+<body>
+    <div class="flex flex-col justify-center text-white items-center w-full min-h-dvh max-h-auto bg-zinc-900">
+        <h1 class="mb-6 text-2xl font-semibold text-white -mt-6">Register your account</h1>
+        <form action="/register" method="post">
+            <div class="flex flex-col justify-center items-center bg-zinc-800 gap-4 w-80 h-[26rem] md:w-96 md:h-[26rem] rounded-md">
+                <div>
+                    <label for="username" class="block mb-2 text-sm font-medium">Your username</label>
+                    <input type="text" name="username" class="p-2 w-64 border-[1px] border-zinc-700 rounded-lg bg-zinc-900 text-white"
+                        placeholder="Username" id="username" value="<%= username ? username : '' %>">
+                </div>
+
+                <div>
+                    <label for="email" class="block mb-2 text-sm font-medium">Your email</label>
+                    <input type="text" name="email" class="p-2 w-64 rounded-lg border-[1px] border-zinc-700 bg-zinc-900 text-white"
+                        placeholder="Email" id="email" value="<%= email ? email : '' %>">
+                </div>
+                <div>
+                    <label for="password" class="block mb-2 text-sm font-medium">Your password</label>
+                    <input type="text" name="password" class="p-2 w-64 rounded-lg bg-zinc-900 border-[1px] border-zinc-700 text-white"
+                        placeholder="Password" id="password">
+                </div>
+                <div>
+                    <% if(taken){%>
+                        <p class="text-red-500">Error: Invalid username or email</p>
+                        <%} %>
+                </div>
+                <div>
+                    <input type="submit" value="Create" class="px-4 py-2 bg-green-800 hover:bg-green-900 cursor-pointer">
+                </div>
+                <div>
+                    <h1>Already have an account, <a href="/login" ><b class="hover:underline">Login</b></a></h1>
+                </div>
+            </div>
+        </form>
+    </div>
+</body>
+
+</html>
